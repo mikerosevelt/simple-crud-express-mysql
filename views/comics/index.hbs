@@ -1,0 +1,65 @@
+<div class="container pt-5">
+  <div class="row">
+    <div class="col">
+      <a href="/comics/create" class="btn btn-primary mt-3">Add New Comic</a>
+      {{{messages.flash}}}
+      <div class="d-flex justify-content-between">
+        <h1 class="">Comics List</h1>
+        <form action="" class="row my-2">
+          <div class=" input-group mb-1">
+            <input type="text" placeholder="search" name="keyword" class="form-control col-sm">
+            <div class="input-group-append">
+              <button type="submit" class="btn btn-sm btn-primary">Search</button>
+            </div>
+        </form>
+      </div>
+    </div>
+    <div class="col">
+      {{!-- <select name="" id="" class="custom-select col-sm-2 my-1">
+          <option value="">1</option>
+          <option value="">2</option>
+          <option value="">3</option>
+        </select> --}}
+    </div>
+    <div class="table-responsive mb-3">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Cover</th>
+            <th scope="col">Title</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each data.comics}}
+          <tr>
+            <td scope="row">{{inc @index}}</td>
+            <td><img src="/uploads/{{cover}}" alt="" class="cover"></td>
+            <td>{{title}}</td>
+            <td>
+              <a href="/comics/{{slug}}" class="btn btn-sm btn-primary">detail</a>
+              {{!-- <a href="" class="btn btn-sm btn-danger">delete</a> --}}
+            </td>
+          </tr>
+          {{else}}
+          <tr>
+            <td class="empty text-center h4" colspan="4">No content</td>
+          </tr>
+          {{/each}}
+
+        </tbody>
+      </table>
+    </div>
+
+    <nav aria-label="Page navigation example">
+      <ul class="pagination justify-content-center">
+        {{{data.prevLink}}}
+        {{{data.links}}}
+        {{{data.nextLink}}}
+      </ul>
+    </nav>
+
+  </div>
+</div>
+</div>

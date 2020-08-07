@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h2>Comic Detail</h2>
+      {{{messages.errors}}}
+      <div class="card mb-3" style="max-width: 540px;">
+        <div class="row no-gutters">
+          <div class="col-md-4">
+            <img src="/uploads/{{data.comic.cover}}" class="card-img" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">{{data.comic.title}}</h5>
+              <p class="card-text"><b>Writer:</b> {{data.comic.writer}}</p>
+              <p class="card-text text-muted"><b>Publisher:</b> {{data.comic.publisher}}</p>
+
+              <a href="/comics/edit/{{data.comic.slug}}" class="btn btn-sm btn-primary">Edit</a>
+              <form action="/comics/{{data.comic.slug}}" method="POST" class="d-inline">
+                <input type="hidden" name="_method" value="DELETE">
+                <button type="submit" class="btn btn-sm btn-danger" onclick="confirm('are you sure?')">Delete</button>
+              </form>
+              <div class="mt-3">
+                <a href="/comics">Back to list</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
